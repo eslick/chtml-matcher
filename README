@@ -1,0 +1,36 @@
+
+LXML Template Unfication
+
+This DSL provides a light-weight way to extract fields from nested
+HTML/XML structure represented in LHTML (as produced by closure-html).
+A template is a declarative representation of substructure with
+embedded variables that are bound when the substructure matches.
+
+Substructure is loosely matched, such that if any given body element
+doesn't match, the next child is considered until all the template
+body elements have matched a lhtml element or the end of the elment
+has been reached without a match.
+
+Prepending < to a tag enables a depth-first search for that tag so you
+can avoid specifying the parent path (similar to // in xpath)
+
+Any matching template that consists of a variable reference results in
+a binding set being created and returned if all elements of the
+template node successfully match.
+
+Additional reserved operators allow you more flexibility on 
+managing what is matched and how bindings from subtrees are combined
+
+all: match same template multiple times over the children of a given node
+     and store them as a list attached to a fresh bindings list
+
+merge: create a single binding out of each of the sub-bindings.  A 
+     node body has an implicit merge
+
+nth: find the nth instance that matches the full body of this operator
+
+regex: matches if regex returns register values for a string (as a list)
+
+fn: Run the referenced function symbol on the current parse state and
+    return bindings, t or nil as appropriate.
+
