@@ -17,4 +17,4 @@
   :components ((:file "package")
 	       (:file "bindings")
 	       (:file "matcher"))
-  :depends-on (:closure-html :stdutils :f-underscore))
+  :depends-on (:closure-html :stdutils :f-underscore :cl-ppcre))

@@ -1,5 +1,5 @@
 (defpackage :chtml-matcher
-  (:use :cl :stdutils :closure-html :f-underscore)
+  (:use :cl :stdutils :f-underscore)
   (:export ;; Some helpers for lhtml
            :html->lhtml :lhtml->html
 	   :lhtml-node-name :lhtml-node-attributes
